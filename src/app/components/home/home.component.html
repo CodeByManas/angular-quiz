@@ -1,0 +1,29 @@
+<div class="parent">
+    <div>
+        <h1 style="text-align: center; margin-top: 10px; font-weight: 600; letter-spacing: .7px;">Welcome to Quiz app😊</h1>
+        <h4 style="text-align: center; margin-top: 10px; font-weight: 600; letter-spacing: .7px;">This quiz will contain total 9 questions. Each question holds 10 points.</h4>
+    </div>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile class="inputField">
+            <div>
+                <mat-form-field  >
+                    <mat-label>Enter Your Full Name</mat-label>
+                    <input matInput [(ngModel)]="value"> 
+                    <mat-icon matSuffix>✏️</mat-icon>
+                  </mat-form-field>
+            </div>
+            <div>
+                <button mat-stroked-button class="startBtn" (click)='submitName()'>Lets start</button>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <ul style=" margin-top: 10px; font-weight: 500; letter-spacing: .7px; list-style: none;">
+                <h3 style=" margin-top: 10px; font-weight: 500; letter-spacing: .7px;">Rules</h3>
+                <li>😎 Correcanswer gives you 10 points</li>
+                <li>😲 Incorrect answer gives you -10 points</li>
+                <li>😟 You will have 60 seconds to answer all questions</li>
+                <li>🙄 Refreshing the page will reset the quiz</li>
+            </ul>
+        </mat-grid-tile>
+      </mat-grid-list>
+</div>

@@ -1,0 +1,21 @@
+*::selection{
+    background-color: red;
+    color: #ffffff;
+}
+.parent{
+    color: #000
+}
+.startBtn{
+    color: red;
+    margin-left: 20px;
+    transition: .2s;
+}
+.startBtn:hover{
+    background-color: red;
+    color: #fff;
+}
+.inputField{
+    border-right: 7px solid red; 
+    box-shadow: inset 3px 0px 10px rgb(121, 121, 121);
+    border-radius: 0px 80px 80px 0px;
+}

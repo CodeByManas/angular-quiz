@@ -1,0 +1,66 @@
+<div class="parent" *ngIf='!resultBox'>
+    <div class="childBox">
+        <div class="innerHeader">
+            <div>
+                <img src="../../../assets/man.svg" alt="User" style="width: 100px; height: 65px;">
+            </div>
+            <div>
+                <h4>Angular & Typescript Quiz</h4>
+                <h4 style="color: red; font-weight: 500; font-style: italic;">Hello  {{user}}</h4>
+            </div>
+        </div>
+        <div class="indicators">
+            <h5>{{points}} Points</h5>
+            <h5>Question {{currentQuestion+1}} of 9</h5>
+            <h5>{{timer}} sec ⏱️</h5>
+        </div>
+        <div style="margin-top: -14px;">
+            <mat-progress-bar mode="determinate"  value={{progressCount}}></mat-progress-bar> 
+        </div>
+        <div class="questions">
+            <h4 style="text-align: center;">Q. {{allQuestions.questions[currentQuestion].questionText}}</h4>
+        </div>
+        <div class="options">
+            <mat-selection-list>
+                <mat-list-option class="option-style" appOptstyle [isCorrect]='option.correct' *ngFor="let option of allQuestions.questions[currentQuestion].options" [value]="option.text"  (click)='getAnswer(currentQuestion + 1, option)'>
+                  {{option.text | uppercase}}
+                </mat-list-option>
+              </mat-selection-list>
+              <p style="text-align: center; padding-top: 5px;">
+                Option selected: {{allQuestions.questions[currentQuestion].options.value}}
+              </p>
+        </div>
+        <div class="finalBtn">
+            <button mat-button (click)='previousQuestion()' [disabled]="currentQuestion === 0"><mat-icon style="transform: rotate(180deg);" >forward</mat-icon></button>
+            <button mat-button (click)="resetQuiz()"><mat-icon>refresh</mat-icon></button>
+            <button mat-button (click)='nextQuestion()' [disabled]="currentQuestion >=9"><mat-icon>forward</mat-icon></button>
+        </div>
+    </div>
+</div>
+
+
+<div style="display: flex; justify-content: center; align-items: center; height: 86vh;" *ngIf='resultBox'>
+    <div style="width: 70%; height: 80%; background: rgba(255,255,255,0.2);">
+        <div  style="display: flex; justify-content: space-evenly; padding-top: 15px;">
+            <div>
+                <img src="../../../assets/man.svg" alt="User" style="width: 100px; height: 65px;">
+            </div>
+            <div style="font-weight: 500;">
+                <h4>Angular & Typescript Quiz</h4>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-evenly; padding: 15px; margin-top: 10px;">
+            <h1 style="color: red; font-weight: 500;">Congratulation {{user}}</h1>
+            <img src="../../../assets/fireworks.png" alt="congrats" style="width: 100px; height: 100px;">
+        </div>
+        <div style="text-align: center;">
+            <h3>Total Score {{points}}</h3>
+            <h3>Total question attended {{allQuestions.questions.length}}</h3>
+            <h3>Total correct answer {{correctAnswer}}</h3>
+            <h3>Total wrong answer {{incorrectAnswer}}</h3>
+            <div>
+                <button mat-button><mat-icon routerLink='/home' style="background: red; color: #fff;">home</mat-icon></button>
+            </div>
+        </div>      
+    </div>
+</div>
